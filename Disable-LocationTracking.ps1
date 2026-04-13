@@ -58,10 +58,6 @@ Write-Host "  Preventing Search from using location..."
 Set-RegValue 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Search' 'AllowSearchToUseLocation' 0
 Set-RegValue 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search' 'AllowSearchToUseLocation' 0
 
-# ----- Location history -----
-Write-Host "  Clearing and disabling location history..."
-Set-RegValue 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}' 'Value' 'Deny' 'String'
-
 # ----- Maps auto-download based on location -----
 Write-Host "  Disabling Maps location auto-update..."
 Set-RegValue 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\Maps' 'AutoDownloadAndUpdateMapData' 0

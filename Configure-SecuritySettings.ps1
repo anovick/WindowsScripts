@@ -120,12 +120,27 @@ foreach ($proto in $oldProtocols) {
     Set-RegValue "$protoBase\$proto\Client" 'DisabledByDefault' 1
 }
 
-# Ensure TLS 1.2 and 1.3 are explicitly enabled
-foreach ($proto in @('TLS 1.2', 'TLS 1.3')) {
+# Ensure TLS 1.2 is explicitly enabled (supported on all Windows 10/11 builds)
+foreach ($proto in @('TLS 1.2')) {
     Set-RegValue "$protoBase\$proto\Server" 'Enabled'        1
     Set-RegValue "$protoBase\$proto\Server" 'DisabledByDefault' 0
     Set-RegValue "$protoBase\$proto\Client" 'Enabled'        1
     Set-RegValue "$protoBase\$proto\Client" 'DisabledByDefault' 0
+}
+
+# TLS 1.3 is only supported on Windows 11 / Windows Server 2022 and later.
+# On older builds the registry keys have no effect but are harmless.
+$osVersion = [System.Environment]::OSVersion.Version
+if ($osVersion.Build -ge 22000) {
+    Write-Host "  Enabling TLS 1.3 (Windows 11 / Server 2022+)..."
+    foreach ($proto in @('TLS 1.3')) {
+        Set-RegValue "$protoBase\$proto\Server" 'Enabled'        1
+        Set-RegValue "$protoBase\$proto\Server" 'DisabledByDefault' 0
+        Set-RegValue "$protoBase\$proto\Client" 'Enabled'        1
+        Set-RegValue "$protoBase\$proto\Client" 'DisabledByDefault' 0
+    }
+} else {
+    Write-Host "  Skipping TLS 1.3 (requires Windows 11 / Server 2022+; detected build $($osVersion.Build))." -ForegroundColor DarkGray
 }
 
 # ----- Windows Script Host (optional hardening note) -----
