@@ -1,6 +1,10 @@
 # WindowsScripts
 
-Windows scripts to help with privacy, security, and Windows managment.   There supplement utilities that do a more comprehensive job on Windows settings.   Check out these utilities first:
+Windows scripts to help with privacy, security, and Windows managment. 
+
+---
+
+You may want to start with other utilities that do a more comprehensive job on Windows settings.   Check out these utilities first:
 
 - Windows Toolbox by Chris Titus Tech  https://christitus.com/ 
 
@@ -15,19 +19,19 @@ You may also need to remove the restriction on running PowerShell scripts with t
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
+---
+
 There are two groups of scripts:
 
-1. One time scripts
+1. One-time scripts
 
 2. Run regularly
 
 ---
 
-
-
 ## Group 1 - One-Time Scripts
 
-#### Update-PowerShell.ps1
+### Update-PowerShell.ps1
 
 Updates PowerShell to version 7
 
@@ -45,7 +49,7 @@ Run these after every Windows update or even more frequently.
 
 Pauses Windows Update for 28 days on Feature Updates  and 4 days on Quality Updates, which are usually for security.
 
-## Set-WindowsStoreSupression.ps1
+### Set-WindowsStoreSupression.ps1
 
 Does these steps to suppress Windows Store
 
@@ -59,6 +63,10 @@ Does these steps to suppress Windows Store
 
 - Cleans up any existing Store processes
 
-#### Set-PowerPlanHigh.ps1
+### Set-PowerPlanHigh.ps1
 
 Turns up the power plan to High to maximize performance
+
+### Set-NoInkingAndTypingDataCollection.ps1
+
+Turn off the constant telemetry that collects information about keystrokes and pen movements.
