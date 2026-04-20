@@ -12,7 +12,7 @@ You may want to start with other utilities that do a more comprehensive job on W
 
 ---
 
-The scripts be run in a PowerShell session started with Run as Administrator.
+The scripts must be run in a PowerShell session started with Run as Administrator.
 You may also need to remove the restriction on running PowerShell scripts with this PowerShell line:
 
 ```
@@ -73,4 +73,4 @@ Turns up the power plan to High to maximize performance
 
 ### Set-NoInkingAndTypingDataCollection.ps1
 
-Turn off the constant telemetry that collects information about keystrokes and pen movements.
+Turn off the constant telemetry about keystrokes and pen movements.
