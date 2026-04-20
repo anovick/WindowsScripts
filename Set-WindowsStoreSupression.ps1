@@ -121,6 +121,5 @@ Write-Host "A reboot is recommended for all changes to take full effect." -Foreg
 Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" -Name "RemoveWindowsStore" -ErrorAction SilentlyContinue
 Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent" -Name "DisableWindowsConsumerFeatures" -ErrorAction SilentlyContinue
 Get-ScheduledTask -TaskPath "\Microsoft\Windows\Store\*" | Enable-ScheduledTask
-#>zzk
+#>
 
-# https://grok.com/share/bGVnYWN5LWNvcHk_11cbbb46-2221-42a7-b731-7d42d92c7411
