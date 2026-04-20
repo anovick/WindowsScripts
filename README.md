@@ -45,7 +45,7 @@ Prevents the creation of Virtual Desktops and TaskView.   This might be used in 
 
 Run these after every Windows update or even more frequently. 
 
-#### Set-WindowsUpdateDeferral.ps1
+### Set-WindowsUpdateDeferral.ps1
 
 Pauses Windows Update for 28 days on Feature Updates  and 4 days on Quality Updates, which are usually for security.
 
